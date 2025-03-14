@@ -119,3 +119,20 @@ class DishView(CreateAPIView, APIView):
             return Response({"message": "Dish updated successfully", "dish": serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, *args, **kwargs):
+        dish_id = kwargs.get('pk')
+
+        if dish_id:
+            # Fetch a specific dish by ID
+            try:
+                dish = Dish.objects.get(id=dish_id)
+                serializer = DishSerializer(dish)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            except Dish.DoesNotExist:
+                return Response({"error": "Dish not found"}, status=status.HTTP_404_NOT_FOUND)
+        else:
+            # Fetch all dishes
+            dishes = Dish.objects.all()
+            serializer = DishSerializer(dishes, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)

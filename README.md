@@ -65,5 +65,5 @@ Provide examples of how to use the API.
 
 ## Contact  
 Created by David Svanidze - dati.svanidze123@gmail.com
-GitHub: ["https://github.com/dativardzma"](My Github account)
+GitHub: ["https://github.com/dativardzma"] (My Github Account)
 

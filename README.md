@@ -42,6 +42,7 @@ Provide examples of how to use the API.
 📌 **Example:**  
 ```md
 ## API Endpoints  
+```
 
 ### Authentication  
 - `POST register/` → Register a new user  

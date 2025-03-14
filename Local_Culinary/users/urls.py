@@ -14,7 +14,9 @@ urlpatterns = [
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path("logout/", LogoutView.as_view(), name="logout"),
     path('protected/', ProtectedView.as_view(), name='protected'),
-    path('dish/', DishView.as_view(), name='create_dish'),
+    path('dish/create/', DishView.as_view(), name='create_dish'),
     path('dish/<int:pk>/', DishView.as_view(), name='delete_dish'),
     path('dish/<int:pk>/', DishView.as_view(), name='update_dish'),
+    path('dish/<int:pk>', DishView.as_view(), name='read_dish'),
+    path('dishes/', DishView.as_view(), name='get_every_dish')
 ]

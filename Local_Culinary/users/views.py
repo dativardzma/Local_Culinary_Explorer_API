@@ -124,7 +124,6 @@ class DishView(CreateAPIView, APIView):
         dish_id = kwargs.get('pk')
 
         if dish_id:
-            # Fetch a specific dish by ID
             try:
                 dish = Dish.objects.get(id=dish_id)
                 serializer = DishSerializer(dish)
@@ -132,7 +131,6 @@ class DishView(CreateAPIView, APIView):
             except Dish.DoesNotExist:
                 return Response({"error": "Dish not found"}, status=status.HTTP_404_NOT_FOUND)
         else:
-            # Fetch all dishes
             dishes = Dish.objects.all()
             serializer = DishSerializer(dishes, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
